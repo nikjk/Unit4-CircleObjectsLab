@@ -4,7 +4,13 @@ bool doAgain = false;
 do
 {
     Console.WriteLine("Enter the radius of the circle:");
-    double radius = double.Parse(Console.ReadLine());
+    var userNumber = Console.ReadLine();
+    double radius;
+    while (!double.TryParse(userNumber, out radius))
+    {
+        Console.WriteLine("This is not a number!");
+        userNumber = Console.ReadLine();
+    }
 
     Circle circle = new Circle(radius);
 
